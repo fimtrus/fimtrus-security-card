@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">보안 카드</string>
+    <string name="action_settings">설정</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="add_bank">은행 추가</string>
+    <string name="card_number">카드번호</string>
+    <string name="bank_name">은 행 명</string>
+    <string name="confirm">확인</string>
+    <string name="modify">수정</string>
+    <string name="modify_mode">수정모드</string>
+    <string name="cancel">취소</string>
+    <string name="save_succes">카드정보를 저장하였습니다.</string>
+    <string name="save_failed">카드정보 저장을 실패하였습니다.</string>
+    <string name="checkbox_default">기본값</string>
+    <string name="input_cert_card_number">찾으시려는 보안카드의 번호를 입력해주세요.</string>
+    <string name="search_cert_number_failed">보안카드 번호를 찾을 수 없습니다.</string>
+    
+    <string name="setting_display_to_topbar_title">상단바에 표시</string>
+    <string name="setting_display_to_topbar_description">상단바에 표시하려면 체크하세요.</string>
+    <string name="setting_category_notification">알림 설정</string>
+    <string name="setting_category_application_info">어플리케이션 정보</string>
+    <string name="setting_application_name">어플리케이션 이름</string>
+    <string name="setting_application_version">어플리케이션 버전</string>
+    
+    <string name="setting_lock">잠금 설정</string>
+    <string name="setting_input_password">암호 잠금</string>
+    <string name="setting_input_password_description">어플리케이션에 잠금 설정을 원하시면 체크하세요.</string>
+    
+    <string name="setting_backup">데이터 백업</string>
+    <string name="setting_restore">데이터 복구</string>
+    <string name="setting_backup_description">데이터를 백업하시려면 클릭하세요.</string>
+    <string name="setting_restore_description">데이터를 복구하시려면 클릭하세요.\n복구시 현재 데이터들은 모두 삭제됩니다.\n복구가 완료되면 앱이 종료됩니다.</string>
+    
+    <string name="title_setting_password">암호 설정</string>
+    <string name="setting_password">사용하실 암호를 입력하세요.</string>
+    <string name="setting_re_enter_password">사용하실 암호를 한번 더 입력하세요.</string>
+    <string name="change_password">변경하실 암호를 입력하세요.</string>
+    <string name="change_re_enter_password">변경하실 암호를 한번 더 입력하세요.</string>
+    
+    <string name="check_your_password">현재 비밀번호를 확인해주세요.</string>
+    
+    <string name="title_input_password">암호 입력</string>
+    <string name="title_change_password">암호 변경</string>
+    <string name="input_password">암호를 입력하세요.</string>
+    
+    <string name="certificate_failed">인증에 실패하였습니다.</string>
+    <string name="certificate_success">인증에 성공하였습니다.</string>
+    <string name="enrollment_failed">등록에 실패하였습니다.</string>
+    <string name="enrollment_success">성공적으로 등록하였습니다.</string>
+    <string name="enrollment_different">비밀번호가 다릅니다. 다시 입력해주세요.</string>
+    
+    <string name="display_password">비밀번호 표시</string>
+    
+    <string name="reset_password">비밀번호 재설정</string>
+    <string name="reset_password_description">비밀번호 재설정하시려면 클릭하세요.</string>
+
+    <string name="title_backup">데이터 백업</string>
+    <string name="title_restore">데이터 복구</string>
+    <string name="dialog_backup_description">데이터를 백업하시겠습니까?</string>
+    <string name="dialog_backup_description2">백업 비밀번호 분실시 데이터를 복구할 수 없습니다.\nsd카드의 securitycard에 저장되어 있습니다. 다른 안드로이드 폰에 적용을 원하시면 백업 후 파일을 securitycard 경로에 복사하시면 됩니다.</string>
+    <string name="dialog_restore_description">데이터를 복구하시겠습니까?</string>
+    <string name="dialog_restore_description2">복구시 현재 데이터들은 모두 삭제됩니다.\n잘못된 암호 입력시 데이터들은 모두 지워집니다.\n복구가 완료되면 앱이 종료됩니다.</string>
+    <string name="compare_hash_success">파일 검증을 성공하였습니다.</string>
+    <string name="compare_hash_failed">백업파일이 변조되었습니다. 사용할 수 없습니다. </string>
+    <string name="export_data_success">파일을 백업하였습니다.</string>
+    <string name="import_data_success">파일을 복구하였습니다.</string>
+    <string name="export_data_failed">백업을 실패하였습니다.</string>
+    <string name="import_data_failed">복구를 실패하였습니다.</string>
+    <string name="file_not_found">파일을 찾을 수 없습니다. 백업파일을 확인해 주세요.</string>
+    
+    <string name="rooted">루팅 감지</string>
+    <string name="rooted_description">루팅이 감지되었습니다.\n프로그램을 종료합니다.</string>
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="setting"
+    android:title="@string/app_name" >
+
+    <PreferenceCategory
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:key="setting_application_info"
+        android:title="@string/setting_category_application_info" >
+        <Preference
+            android:key="setting_application_name"
+            android:selectable="false"
+            android:title="@string/setting_application_name" />
+        <Preference
+            android:key="setting_application_version"
+            android:selectable="false"
+            android:title="@string/setting_application_version" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="setting_category_topbar"
+        android:title="@string/setting_category_notification" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="setting_display_topbar"
+            android:summary="@string/setting_display_to_topbar_description"
+            android:title="@string/setting_display_to_topbar_title" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="setting_category_lock"
+        android:title="@string/setting_lock" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="setting_lock_display"
+            android:summary="@string/setting_input_password_description"
+            android:title="@string/setting_input_password" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="setting_reset_password"
+        android:selectable="true"
+        android:title="@string/reset_password"
+        android:summary="@string/reset_password_description" />
+    <Preference
+        android:key="setting_backup"
+        android:selectable="true"
+        android:title="@string/setting_backup"
+        android:summary="@string/setting_backup_description" />
+    <Preference
+        android:key="setting_restore"
+        android:selectable="true"
+        android:title="@string/setting_restore"
+        android:summary="@string/setting_restore_description" />
+
+</PreferenceScreen>
