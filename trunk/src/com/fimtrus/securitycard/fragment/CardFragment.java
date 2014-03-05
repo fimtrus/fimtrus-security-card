@@ -313,20 +313,9 @@ public class CardFragment extends Fragment implements View.OnClickListener {
 			break;
 		case R.id.button_modify :
 			//확인버튼 컨테이너를 숨기고, 수정 버튼 컨테이너를 보이도록한다.
-			if ( isModify ) {
-				//수정모드 상태에서 확인 버튼 클릭
-				mModifyButton.setText(R.string.modify);
-				mModifyTextView.setVisibility(View.GONE);
-				saveCardInformation();
-				setCardTableEnable( false );
-				isModify = false;
-			} else {
-				//수정모드 진입하기
-				isModify = true;
-				mModifyTextView.setVisibility(View.VISIBLE);
-				setCardTableEnable( true );
-				mModifyButton.setText(R.string.confirm);
-			}
+			
+			modifyCardInformation();
+			
 			break;
 		case R.id.button_cancel2 : 
 			
@@ -343,6 +332,35 @@ public class CardFragment extends Fragment implements View.OnClickListener {
 			setCardTableEnable( false );
 			isModify = false;
 			break;
+		}
+	}
+
+	/**
+	 * 카드정보를 수정 모드 또는 일반모드로 진입하도록 한다.
+	 */
+	private void modifyCardInformation() {
+		
+		if ( isModify ) {
+			//수정모드 상태에서 확인 버튼 클릭
+			mModifyButton.setText(R.string.modify);
+			mModifyTextView.setVisibility(View.GONE);
+			
+			mRootLayout.findViewById(EDITTEXT_BANK_NAME_ID).setEnabled(false);
+			mRootLayout.findViewById(EDITTEXT_CARD_CERT_NUMBER_ID).setEnabled(false);
+			
+			saveCardInformation();
+			setCardTableEnable( false );
+			isModify = false;
+		} else {
+			//수정모드 진입하기
+			isModify = true;
+			
+			mRootLayout.findViewById(EDITTEXT_BANK_NAME_ID).setEnabled(true);
+			mRootLayout.findViewById(EDITTEXT_CARD_CERT_NUMBER_ID).setEnabled(true);
+			
+			mModifyTextView.setVisibility(View.VISIBLE);
+			setCardTableEnable( true );
+			mModifyButton.setText(R.string.confirm);
 		}
 	}
 }
