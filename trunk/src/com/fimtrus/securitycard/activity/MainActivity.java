@@ -13,6 +13,8 @@ import com.jhlibrary.util.Util;
 
 public class MainActivity extends SlidingBaseActivity {
 
+	private LeftSlidingFragment mLeftSlidingFragment;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -22,7 +24,7 @@ public class MainActivity extends SlidingBaseActivity {
 		Util.updateCheck(this); 
 		
 		addLeftSlidingMenu(savedInstanceState, R.layout.fragment_left_sliding, R.id.fragment_left_sliding,
-				new LeftSlidingFragment());
+				mLeftSlidingFragment = new LeftSlidingFragment());
 
 		// addLeftRightSlidingMenu(savedInstanceState,
 		// R.layout.fragment_left_sliding,
@@ -64,5 +66,9 @@ public class MainActivity extends SlidingBaseActivity {
 			this.finish();
 			System.exit(0);
 		}
+	}
+	
+	public void notifyDataChanged() {
+		mLeftSlidingFragment.notifyDataChanged();
 	}
 }

@@ -606,12 +606,13 @@ public class SettingActivity extends SherlockPreferenceActivity implements Prefe
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
 		String key = preference.getKey();
-
+		
+		
 		if (key.equals(PREFERENCE_DISPLAY_TOPBAR)) {
 
 			NotificationManager notiManager;
 			notiManager = (NotificationManager) this.getSystemService(this.NOTIFICATION_SERVICE);
-
+			
 			if ((Boolean) newValue == true) {
 				Intent intent = new Intent(this, AutoStartReceiver.class);
 				sendBroadcast(intent);

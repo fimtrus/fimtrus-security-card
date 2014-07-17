@@ -6,6 +6,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
 import com.fimtrus.securitycard.R;
@@ -21,12 +23,8 @@ public class AutoStartReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		
-		Object obj = Util.getPreference(context, Constant.PREFERENCE_DISPLAY_TOPBAR);
-		
-		boolean isShowTop = false;
-		if ( obj != null ) {
-			isShowTop = (Boolean) obj;
-		}
+		SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(context);
+		boolean isShowTop = preference.getBoolean(Constant.PREFERENCE_DISPLAY_TOPBAR, false);
 		
 		if ( isShowTop ) {
 			

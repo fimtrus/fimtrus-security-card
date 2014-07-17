@@ -66,6 +66,7 @@ public class LeftSlidingFragment extends ListFragment {
 		icon.setImageResource(R.drawable.ic_menu_btn_add);
 		TextView title = (TextView) mAddBankFooter.findViewById(R.id.row_title);
 		title.setText(R.string.add_bank);
+		
 	}
 
 	private void initializeListeners() {
@@ -137,5 +138,11 @@ public class LeftSlidingFragment extends ListFragment {
 		// break;
 		// }
 
+	}
+	
+	public void notifyDataChanged() {
+		mCardInfoList = CardInfoHelper.getAll(getActivity());
+		mIconTextAdapter = new CardInfoAdapter(getActivity(), mCardInfoList);
+		setListAdapter(mIconTextAdapter);
 	}
 }
