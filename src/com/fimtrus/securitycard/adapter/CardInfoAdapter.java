@@ -15,12 +15,15 @@ import com.fimtrus.securitycard.model.CardInfoModel;
 
 public class CardInfoAdapter extends ArrayAdapter<CardInfoModel> {
 	
+	private ArrayList<CardInfoModel> mCardInfoList;
+
 	public CardInfoAdapter(Context context) {
 		super(context, 0);
 	}
 	
 	public CardInfoAdapter(Context context, ArrayList<CardInfoModel> cardInfoList) {
 		super(context, 0, cardInfoList);
+		mCardInfoList = cardInfoList;
 	}
 	
 	
@@ -38,5 +41,15 @@ public class CardInfoAdapter extends ArrayAdapter<CardInfoModel> {
 		TextView title = (TextView) convertView.findViewById(R.id.row_title);
 		title.setText(getItem(position).getBankName());
 		return convertView;
+	}
+
+	@Override
+	public void notifyDataSetChanged() {
+		super.notifyDataSetChanged();
+	}
+
+	@Override
+	public CardInfoModel getItem(int position) {
+		return mCardInfoList.get(position);
 	}
 }

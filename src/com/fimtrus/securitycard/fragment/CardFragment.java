@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fimtrus.securitycard.R;
+import com.fimtrus.securitycard.activity.MainActivity;
 import com.fimtrus.securitycard.helper.CardInfoHelper;
 import com.fimtrus.securitycard.model.CardInfoModel;
 import com.jhlibrary.util.Util;
@@ -90,6 +91,10 @@ public class CardFragment extends Fragment implements View.OnClickListener {
 	private boolean isModify = false;
 
 	private CardViewAutoFocus mCardViewAutoFocus;
+
+	private String mCardCertNumberTemp;
+
+	private String mBankNameTemp;
 	
 	
 	public static final CardFragment newInstance(String certNumber) {
@@ -325,6 +330,15 @@ public class CardFragment extends Fragment implements View.OnClickListener {
 				EditText editText = (EditText) mRootLayout.findViewById(id1);
 				editText.setText( "" );
 			}
+			
+			( (EditText) mRootLayout.findViewById(EDITTEXT_BANK_NAME_ID) ).setText(mBankNameTemp);
+			( (EditText) mRootLayout.findViewById(EDITTEXT_CARD_CERT_NUMBER_ID) ).setText(mCardCertNumberTemp);
+			
+			mBankNameTemp = "";
+			mCardCertNumberTemp = "";
+			
+			mRootLayout.findViewById(EDITTEXT_BANK_NAME_ID).setEnabled(false);
+			mRootLayout.findViewById(EDITTEXT_CARD_CERT_NUMBER_ID).setEnabled(false);
 			//확인버튼 컨테이너를 숨기고, 수정 버튼 컨테이너를 보이도록한다.
 			mModifyTextView.setVisibility(View.GONE);
 			mModifyButton.setText(R.string.modify);
@@ -351,12 +365,18 @@ public class CardFragment extends Fragment implements View.OnClickListener {
 			saveCardInformation();
 			setCardTableEnable( false );
 			isModify = false;
+			
+			( (MainActivity)getActivity() ).notifyDataChanged();
+			
 		} else {
 			//수정모드 진입하기
 			isModify = true;
 			
 			mRootLayout.findViewById(EDITTEXT_BANK_NAME_ID).setEnabled(true);
 			mRootLayout.findViewById(EDITTEXT_CARD_CERT_NUMBER_ID).setEnabled(true);
+			
+			mBankNameTemp = ( (EditText) mRootLayout.findViewById(EDITTEXT_BANK_NAME_ID) ).getText().toString();
+			mCardCertNumberTemp = ( (EditText) mRootLayout.findViewById(EDITTEXT_CARD_CERT_NUMBER_ID) ).getText().toString();
 			
 			mModifyTextView.setVisibility(View.VISIBLE);
 			setCardTableEnable( true );
