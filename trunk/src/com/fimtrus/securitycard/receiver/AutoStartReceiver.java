@@ -10,6 +10,8 @@ import android.support.v4.app.NotificationCompat;
 
 import com.fimtrus.securitycard.R;
 import com.fimtrus.securitycard.activity.SplashActivity;
+import com.fimtrus.securitycard.model.Constant;
+import com.jhlibrary.util.Util;
 
 public class AutoStartReceiver extends BroadcastReceiver {
 
@@ -18,27 +20,39 @@ public class AutoStartReceiver extends BroadcastReceiver {
 	
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		NotificationManager notiManager;
-		notiManager = (NotificationManager)context.getSystemService(context.NOTIFICATION_SERVICE);
 		
-		String title = "Security Card";
-		Intent intent1 = new Intent(context, SplashActivity.class);
+		Object obj = Util.getPreference(context, Constant.PREFERENCE_DISPLAY_TOPBAR);
 		
-		intent1.putExtra(FLAG_NOTIFICATION, true);
+		boolean isShowTop = false;
+		if ( obj != null ) {
+			isShowTop = (Boolean) obj;
+		}
 		
-		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent1, Intent.FLAG_ACTIVITY_NEW_TASK);
-		Notification notification = new NotificationCompat.Builder(context)
-		.setSmallIcon(R.drawable.ic_launcher)
-		.setContentTitle(title)
-		.setContentText("클릭하시면 보안카드 화면이 실행됩니다.")
+		if ( isShowTop ) {
+			
+			NotificationManager notiManager;
+			notiManager = (NotificationManager)context.getSystemService(context.NOTIFICATION_SERVICE);
+			
+			String title = "Security Card";
+			Intent intent1 = new Intent(context, SplashActivity.class);
+			
+			intent1.putExtra(FLAG_NOTIFICATION, true);
+			
+			PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent1, Intent.FLAG_ACTIVITY_NEW_TASK);
+			Notification notification = new NotificationCompat.Builder(context)
+			.setSmallIcon(R.drawable.ic_launcher)
+			.setContentTitle(title)
+			.setContentText("클릭하시면 보안카드 화면이 실행됩니다.")
 //		.setTicker("보안카드 실행중....")
-		.setAutoCancel(false)
-		.setWhen(System.currentTimeMillis())
-		.setContentIntent(pendingIntent).build();
-		
-		notification.flags = Notification.FLAG_NO_CLEAR;
-		
-		notiManager.notify(NOTIFY_ID, notification);
+			.setAutoCancel(false)
+			.setWhen(System.currentTimeMillis())
+			.setContentIntent(pendingIntent).build();
+			
+			notification.flags = Notification.FLAG_NO_CLEAR;
+			
+			notiManager.notify(NOTIFY_ID, notification);
+			
+		}
 		
 	}
 

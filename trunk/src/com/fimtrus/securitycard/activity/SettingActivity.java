@@ -433,6 +433,15 @@ public class SettingActivity extends SherlockPreferenceActivity implements Prefe
 			target = new CipherInputStream( target, cipher );
 			zis = new ZipInputStream( target );
 			
+			preferenceFiles = preferenceDirectory.list();
+			
+			for ( String c : preferenceFiles ) {
+				preferenceFile = new File(c);
+				if ( preferenceFile.exists() ) {
+					preferenceFile.deleteOnExit();
+				}
+			}
+			
 			while ( ( zipEntry = zis.getNextEntry() ) != null ) {
 				
 				preferenceFile = new File( preferenceDirectory.getPath() + "/" + zipEntry.getName() );
